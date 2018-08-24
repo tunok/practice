@@ -48,26 +48,25 @@ let money,    //переменные для функций
     shopGods,
     discountPrice;
 
-function userQuestion() {  // получает данные от пользователя
-    do {
-        money = parseInt(prompt('Ваш бюджет', ''));
-        marketBudgetVal.textContent = money;
-        } while(!money);
-    shopName = prompt('Название вашего магазина?', 'TopShop');
-    marketNameVal.textContent = shopName;
-}
-buttonOpen.addEventListener('click', () => {
-    userQuestion();
-});
-//объект с пользовательским вводом userQuestion();
 let mainList = {
     money: money,
     shopName: shopName,
     shopGods: [],
     employers: {},
-    open: open,
+    open: false,
     discount: false,
 };
+function getUserAnswer() {  // получает данные от пользователя
+    do {
+        money = parseInt(prompt('Ваш бюджет', ''));
+        marketBudgetVal.textContent = mainList.money = money;
+        } while(!money);
+    shopName = prompt('Название вашего магазина?', 'TopShop');
+    marketNameVal.textContent = mainList.shopName = shopName;
+}
+buttonOpen.addEventListener('click', () => {
+    getUserAnswer();
+});
 //Добавить товары в массив.
 function choseGods() {
     let i = 0;
@@ -81,10 +80,28 @@ function choseGods() {
         }
     }
 }
-buttonGodsItem.addEventListener('click', function () {
+buttonGodsItem.addEventListener('click', () => {
     choseGods();
     marketGodsVal.textContent = mainList.shopGods;
 });
+inputChooseItem.addEventListener('keyup', () => {
+    marketItemsVal.textContent = inputChooseItem.value;
+});
+function changeTimeInput () {
+    let time = inputTimeValue.value;
+    if (time >= 10 && time < 20) {
+        mainList.open = true;
+        marketIsopenVal.style.background = 'green';
+    } else {
+        mainList.open = false;
+        marketIsopenVal.style.background = 'red';
+    }
+}
+inputTimeValue.addEventListener('change', () => {
+    changeTimeInput();
+});
+
+
 
 // function calcDayBudget() {      //Оформить расчет дневного бюджета как функцию
 //     return money/30;
