@@ -42,7 +42,6 @@ body {
           transform: translateY(-60px);
 }
 .open-btn {
-  border: none;
   outline: none;
   color: #fff;
   font-weight: 900;
