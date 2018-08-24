@@ -87,6 +87,7 @@ buttonGodsItem.addEventListener('click', () => {
 inputChooseItem.addEventListener('keyup', () => {
     marketItemsVal.textContent = inputChooseItem.value;
 });
+//Часы работы магазина
 function changeTimeInput () {
     let time = inputTimeValue.value;
     if (time >= 10 && time < 20) {
@@ -100,32 +101,27 @@ function changeTimeInput () {
 inputTimeValue.addEventListener('change', () => {
     changeTimeInput();
 });
-
-
-
-// function calcDayBudget() {      //Оформить расчет дневного бюджета как функцию
-//     return money/30;
-// }
-//let price = 200;
-//Создать функцию дисконтной системы
-// function getDiscount(discount) {
-//     if ( discount ) {
-//         let discountPrice = price * 0.8;
-//         return discountPrice;
-//     }
-// }
-//4 раза спросить у пользователя имя сотрудника и записать в объект employers в формате Номер - Имя
+//Оформить расчет дневного бюджета как функцию
+function calcDayBudget() {
+    inputCountBudgetValue.value = money/30;
+}
+buttonCountBudget.addEventListener('click', () => {
+    calcDayBudget();
+});
+function hireEmployers() {
+    mainList.employers = '';
+    for (let i = 0; i < employerNames.length; i++ ) {
+        if (employerNames[i].value) {
+            marketEmployersVal.textContent = mainList.employers += employerNames[i].value + ',';         } else {
+            i++;
+        }
+    }
+}
+buttonHireEmployers.addEventListener('click', () => {
+    hireEmployers();
+});
 function employers() {
     for (let i = 1; i < 5; i += 1) {
         mainList.employers[i] = prompt('Имя сотрудника?', 'Иван')
     }
 }
-// Используя цикл for in для объекта вывести в консоль сообщение "Наш магазин включает в себя :"
-function shopIncluded() {
-    for (let inc in mainList.shopGods) {
-        document.write('<h1>')
-        document.write('Наш магазин включает в себя :' + mainList.shopGods[inc])
-        document.write('</h1>')
-    }
-}
-
