@@ -41,22 +41,25 @@ let employerNames = document.querySelectorAll('input.hire-employers-item'),
     employerName2 = employerNames[1],
     employerName3 = employerNames[2];
 
-
 //создать 2 переменные, которые будут получать данные от пользователя
 let money,    //переменные для функций
     shopName,
     answer,
-    shopGods;
+    shopGods,
+    discountPrice;
+
 function userQuestion() {  // получает данные от пользователя
     do {
-        money = parseInt(prompt('Ваш бюджет?', ''));
-        console.log(money);
-    } while(!money);
-
+        money = parseInt(prompt('Ваш бюджет', ''));
+        marketBudgetVal.textContent = money;
+        } while(!money);
     shopName = prompt('Название вашего магазина?', 'TopShop');
+    marketNameVal.textContent = shopName;
 }
-//объект с пользовательским вводом
-userQuestion();
+buttonOpen.addEventListener('click', () => {
+    userQuestion();
+});
+//объект с пользовательским вводом userQuestion();
 let mainList = {
     money: money,
     shopName: shopName,
@@ -65,30 +68,35 @@ let mainList = {
     open: open,
     discount: false,
 };
-//Задать пользователю 3 раза вопрос "Какой тип товаров будем продавать?"
+//Добавить товары в массив.
 function choseGods() {
-    for (let i = 0; i < 3; i += 1) {
-        answer = prompt('Какой тип товаров будем продавать?', '');
-        while (!answer) {
-            answer = prompt('Какой тип товаров будем продавать?', '');
+    let i = 0;
+    while(i < googsItem.length) {
+        console.log(googsItem[i].value);
+        if (googsItem[i].value !== "") {
+            mainList.shopGods.push(googsItem[i].value);
+            i++;
+        } else {
+            i++;
         }
-        mainList.shopGods[i] = answer;
     }
 }
-choseGods();
-console.log('array shopGods: ', mainList.shopGods);
-console.log('Object : ', mainList);
-function calcDayBudget() {      //Оформить расчет дневного бюджета как функцию
-    return money/30;
-}
+buttonGodsItem.addEventListener('click', function () {
+    choseGods();
+    marketGodsVal.textContent = mainList.shopGods;
+});
+
+// function calcDayBudget() {      //Оформить расчет дневного бюджета как функцию
+//     return money/30;
+// }
 //let price = 200;
 //Создать функцию дисконтной системы
-function getDiscount(discount) {
-    if ( discount ) {
-        const discountPrice = price * 0.8;
-        return discountPrice;
-    }
-}
+// function getDiscount(discount) {
+//     if ( discount ) {
+//         let discountPrice = price * 0.8;
+//         return discountPrice;
+//     }
+// }
 //4 раза спросить у пользователя имя сотрудника и записать в объект employers в формате Номер - Имя
 function employers() {
     for (let i = 1; i < 5; i += 1) {
