@@ -180,6 +180,9 @@ header ul li:before {
   font-size: 24px;
   cursor: pointer;
 }
+.content .info-header-tab:active {
+  border-bottom: 1px solid indianred;
+}
 .content .info-header-tab:after {
   content: '';
   display: block;
