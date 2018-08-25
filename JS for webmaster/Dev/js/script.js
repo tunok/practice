@@ -40,14 +40,15 @@ let employerNames = document.querySelectorAll('input.hire-employers-item'),
     employerName1 = employerNames[0],
     employerName2 = employerNames[1],
     employerName3 = employerNames[2];
-
-//создать 2 переменные, которые будут получать данные от пользователя
-let money,    //переменные для функций
+	
+//переменные для функций
+let money,    
     shopName,
     answer,
     shopGods,
     discountPrice;
 
+//объект для хранения
 let mainList = {
     money: money,
     shopName: shopName,
@@ -56,7 +57,9 @@ let mainList = {
     open: false,
     discount: false,
 };
-function getUserAnswer() {  // получает данные от пользователя
+
+// получить данные от пользователя при нажатии на кнопку "открыть магазин"
+function getUserAnswer() {  
     do {
         money = parseInt(prompt('Ваш бюджет', ''));
         marketBudgetVal.textContent = mainList.money = money;
@@ -64,10 +67,10 @@ function getUserAnswer() {  // получает данные от пользов
     shopName = prompt('Название вашего магазина?', 'TopShop');
     marketNameVal.textContent = mainList.shopName = shopName;
 }
-buttonOpen.addEventListener('click', () => {
-    getUserAnswer();
-});
-//Добавить товары в массив.
+
+buttonOpen.addEventListener('click', getUserAnswer);
+
+//Добавить товары в массив в объекте
 function choseGods() {
     let i = 0;
     while(i < googsItem.length) {
@@ -87,6 +90,7 @@ buttonGodsItem.addEventListener('click', () => {
 inputChooseItem.addEventListener('keyup', () => {
     marketItemsVal.textContent = inputChooseItem.value;
 });
+
 //Часы работы магазина
 function changeTimeInput () {
     let time = inputTimeValue.value;
@@ -98,30 +102,25 @@ function changeTimeInput () {
         marketIsopenVal.style.background = 'red';
     }
 }
-inputTimeValue.addEventListener('change', () => {
-    changeTimeInput();
-});
+
+inputTimeValue.addEventListener('change', changeTimeInput);
+
 //Оформить расчет дневного бюджета как функцию
 function calcDayBudget() {
     inputCountBudgetValue.value = money/30;
 }
-buttonCountBudget.addEventListener('click', () => {
-    calcDayBudget();
-});
+
+buttonCountBudget.addEventListener('click', calcDayBudget);
+
+//
 function hireEmployers() {
     mainList.employers = '';
     for (let i = 0; i < employerNames.length; i++ ) {
         if (employerNames[i].value) {
-            marketEmployersVal.textContent = mainList.employers += employerNames[i].value + ',';         } else {
+            marketEmployersVal.textContent = mainList.employers += employerNames[i].value + ',';         
+		} else {
             i++;
         }
     }
 }
-buttonHireEmployers.addEventListener('click', () => {
-    hireEmployers();
-});
-function employers() {
-    for (let i = 1; i < 5; i += 1) {
-        mainList.employers[i] = prompt('Имя сотрудника?', 'Иван')
-    }
-}
+buttonHireEmployers.addEventListener('click', hireEmployers);
