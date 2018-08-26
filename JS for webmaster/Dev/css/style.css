@@ -49,7 +49,7 @@
   margin: 0;
   padding: 0;
   outline: none;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", sans-serif;
 }
 a {
   color: inherit;
@@ -118,9 +118,8 @@ header ul li:before {
   min-height: 300px;
   border: 6px solid #c78030;
   background-color: rgba(0, 0, 0, 0.4);
-  margin: 0 auto;
+  margin: 180px auto;
   padding: 40px;
-  margin-top: 180px;
   text-align: center;
 }
 .main-block-link {
@@ -257,7 +256,7 @@ header ul li:before {
 }
 .content .info-tabcontent .photo img {
   width: 100%;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
 }
 .content .info .hide {
   display: none;
@@ -292,8 +291,7 @@ header ul li:before {
   width: 20%;
   height: 1px;
   background-color: #c78030;
-  margin: 0 auto;
-  margin-top: 4px;
+  margin: 4px auto;
 }
 .content .slider {
   margin-top: 150px;
@@ -390,8 +388,7 @@ header ul li:before {
 }
 .content .slider-dots {
   width: 90%;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -495,8 +492,7 @@ header ul li:before {
 }
 .content .more {
   display: block;
-  margin: 0 auto;
-  margin-top: 60px;
+  margin: 60px auto;
   width: 250px;
   height: 60px;
   background-color: transparent;
@@ -507,6 +503,18 @@ header ul li:before {
 }
 .content .more:hover {
   box-shadow: 0 0 10px #c78030;
+}
+.more-splash {
+  animation-name: splash;
+  animation-duration: 1.7s;
+}
+@keyframes splash {
+    from {
+      box-shadow: 0 0 10px #c78030;
+      }
+    to {
+      box-shadow: 0 0 60px #c78030;
+    }
 }
 .content .contact {
   width: 86%;
@@ -608,8 +616,7 @@ header ul li:before {
 .content footer .social .social-block a img {
   width: 50%;
   display: block;
-  margin: 0 auto;
-  margin-top: 17px;
+  margin: 17px auto;
 }
 .overlay {
   position: fixed;
