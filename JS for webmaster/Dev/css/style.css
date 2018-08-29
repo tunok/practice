@@ -369,7 +369,7 @@ header ul li:before {
   background-color: rgba(0, 0, 0, 0.4);
 }
 .content .slider .wrap .next:hover .arrow-right {
-  opacity: 1;
+  opacity: ;
 }
 .content .slider .wrap .next .arrow-right {
   width: 30px;
