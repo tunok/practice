@@ -4,7 +4,7 @@ body {
 }
 .slideshow-btn {
     color: white;
-    margin: 0 auto;
+    margin: 15px auto;
     width: 250px;
     height: 30px;
     text-align: center;
@@ -27,6 +27,7 @@ body {
 }
 .slideshow-btn i {
     color: red;
+    font-size: larger;
 }
 .photos {
     margin: 50px auto;

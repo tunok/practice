@@ -36,11 +36,21 @@ window.addEventListener('DOMContentLoaded', function () {
         prevSlide();
     });
     //SlideShow
+    let letsStart;
+    function slideShowStart() {
+       if (letsStart) {
+            clearInterval(letsStart);
+            letsStart = null;
+           slideShowBtn.innerHTML = '<i class="fas fa-play"></i>\n' + '<span>START SLIDE SHOW</span>'
+        } else {
+            letsStart = setInterval(nextSlide, 2000);
+           slideShowBtn.innerHTML = '<i class="fas fa-pause"></i>\n' + '<span>STOP SLIDE SHOW</span>'
+        }
+    }
     let slideShowBtn = document.querySelector('.slideshow-btn');
-
-    
 
         slideShowBtn.addEventListener('click', function () {
             slideShowStart();
+
         })
 });
