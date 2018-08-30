@@ -35,4 +35,12 @@ window.addEventListener('DOMContentLoaded', function () {
     navPrev.addEventListener('click', function () {
         prevSlide();
     });
+    //SlideShow
+    let slideShowBtn = document.querySelector('.slideshow-btn');
+
+    
+
+        slideShowBtn.addEventListener('click', function () {
+            slideShowStart();
+        })
 });
