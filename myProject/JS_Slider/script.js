@@ -29,6 +29,7 @@ window.addEventListener('DOMContentLoaded', function () {
         slider.src = arr[firstSlide];
     }
     navNext.addEventListener('click', function () {
+        slider.style.transition = '2s';
         nextSlide();
     });
     navPrev.addEventListener('click', function () {
